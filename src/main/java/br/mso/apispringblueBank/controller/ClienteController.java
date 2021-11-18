@@ -24,34 +24,32 @@ public class ClienteController {
 	private ClienteService service;
 	
 	
-	/*
-	 * @PostMapping("/salvar")
+	 @PostMapping("/salvar")
 	public ResponseEntity<Object> save(@RequestBody Cliente cliente){
 		
 		service.save(cliente);
 		return new ResponseEntity<>("Cliente Cadastrado", HttpStatus.CREATED);
 	}
-	 * 
-	 */
+	 
 	
 	
-	@RequestMapping(method = RequestMethod.POST, value = "/salvar")
-	public String salvar(Cliente cliente ) {
-		
-		try {
-			service.save(cliente);
-			
-			
-			return "cadastro com sucesso";
-			
-		} catch (Exception e) {
-			String msg = e.getMessage();
-			return msg;
-		}
-		
-		
-		
-		}
+//	@RequestMapping(method = RequestMethod.POST, value = "/salvar")
+//	public String salvar(Cliente cliente ) {
+//		
+//		try {
+//			service.save(cliente);
+//			
+//			
+//			return "cadastro com sucesso";
+//			
+//		} catch (Exception e) {
+//			String msg = e.getMessage();
+//			return msg;
+//		}
+//		
+//		
+//		
+//		}
 	
 	
 	

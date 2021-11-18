@@ -44,12 +44,15 @@ public class Conta {
 	
 	@NotNull
 	@Column(nullable = false, length = 45)
-	private String status;
+	private Boolean status;
 	
 	@NotNull
-	@NumberFormat(style = Style.CURRENCY, pattern = "#,###00.00")
+	@NumberFormat(style = Style.CURRENCY, pattern = "#.###00,00")
 	@Column(name = "saldo", nullable = false, columnDefinition = "DECIMAL(9,2) DEFAULT 0.00")
 	private BigDecimal saldo;
+	//
+	//
+	
 	
 	@NotNull
 	@Column(nullable = false, length = 45)
@@ -84,15 +87,17 @@ public class Conta {
 		this.agencia = agencia;
 	}
 
-	public String getStatus() {
+	public Boolean getStatus() {
 		return status;
 	}
 
-	public void setStatus(String status) {
+	public void setStatus(Boolean status) {
 		this.status = status;
 	}
 
 	public BigDecimal getSaldo() {
+		
+		
 		return saldo;
 	}
 

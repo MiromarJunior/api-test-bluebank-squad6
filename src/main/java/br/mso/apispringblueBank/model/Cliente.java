@@ -51,32 +51,29 @@ public class Cliente {
 	@Column( nullable = false,unique = true, length = 11)
 	private String cpf;
 	
+	@Email
+	@Column(name = "email", nullable = false)
+	private String email;
 	
-	
+	@Column(name = "telefone", nullable = false)
+	private String telefone;
 	
 	
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	@Column(nullable = false,name = "data_nascimento", columnDefinition = "DATE")
 	private LocalDate dataNascimento;
-	
-	
-	
-	
-	
+		
 	
 	
 	@Column(nullable = false,name = "nome_mae")
 	private String nomeMae;
 	
+
 	
-	
-	@NumberFormat(style = Style.CURRENCY, pattern = "#,###00.00")
-	@Column(name = "renda",  columnDefinition = "DECIMAL(9,2) DEFAULT 0.00")
+	@NumberFormat(style = Style.CURRENCY, pattern = "#,##00.00")
+	@Column(name = "renda",  columnDefinition = "DECIMAL(12,2) DEFAULT 0.00")
 	private BigDecimal renda;
 	
-	@Email
-	@Column(name = "email", nullable = false)
-	private String email;
 	
 	
 	@Valid
@@ -94,8 +91,6 @@ public class Cliente {
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "conta_id")
 	private Conta conta;
-	
-	
 	
 	
 	
@@ -186,6 +181,14 @@ public class Cliente {
 
 	public void setConta(Conta conta) {
 		this.conta = conta;
+	}
+
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
 	}
 	
 	
